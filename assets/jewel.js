@@ -1,4 +1,4 @@
-var randomTarget = () => Math.floor(Math.random() * 111) + 19;
+var randomTarget = Math.floor(Math.random() * 111) + 19;
 var num;
 var winCount = 0;
 var lossCount = 0;
@@ -15,7 +15,7 @@ var gameStart = () =>
 {
     
     $(".jewels").empty();
-    $("#target").html("Target: " + randomTarget());
+    $("#target").html("Target: " + randomTarget);
 
     for(var i = 0; i < 4; i++)
     {
@@ -50,7 +50,7 @@ $(document).on("click", ".jewel", function()
        winCount++;
        prevousNum = 0;
        $("#win").html("Win:" + winCount);
-       randomTarget();
+       gameStart();
     
    }
    else if(previousNum > randomTarget)
@@ -58,7 +58,7 @@ $(document).on("click", ".jewel", function()
         lossCount++;
         previousNum = 0;
         $("#loss").html("Lost:" + lossCount);
-        randomTarget()
+        gameStart();
    }
   
 });
